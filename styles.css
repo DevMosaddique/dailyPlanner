@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.container {
+  text-align: center;
+  background-color: #1e1e1e;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  animation: fadeIn 1s ease-in-out;
+  margin: 20px 0;
+}
+
+.schedule-item {
+  margin: 15px 0;
+  padding: 20px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #333, #444);
+  color: #fff;
+  transition: transform 0.6s ease, background 0.6s ease, opacity 0.6s ease;
+  position: relative;
+}
+
+.schedule-item:hover {
+  background: linear-gradient(145deg, #444, #555);
+  transform: scale(1.05);
+}
+
+.schedule-item.current {
+  background: linear-gradient(145deg, #ffa726, #fb8c00, #f57c00);
+  box-shadow: 0 4px 15px rgba(255, 138, 0, 0.5);
+  font-weight: bold;
+  transform: scale(1.05); /* Subtle scaling to emphasize */
+}
+
+.schedule-item.completed {
+  filter: brightness(0.5);
+  text-decoration: line-through;
+}
+
+h1 {
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-size: 2.5em;
+  background: linear-gradient(145deg, #ffa726, #fb8c00, #f57c00);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradientShift 3s ease-in-out infinite alternate;
+}
+
+#countdown {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  background: linear-gradient(145deg, #ffa726, #fb8c00, #f57c00);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradientShift 3s ease-in-out infinite alternate;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #f57c00;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #fb8c00;
+}
+
+button:focus {
+  outline: 2px solid #ffa726;
+}
+
+a {
+  color: #ffa726;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #fb8c00;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Reduce brightness for past tasks */
+.completed-task {
+  filter: brightness(0.6); /* Dims past tasks */
+}
+
+/* Ensure current task has a shadow and standout effect */
+.current-task {
+  box-shadow: 0 0 15px rgba(255, 165, 38, 0.6); /* Glowing effect for current task */
+}
+
+/* Highlight for current task */
+.highlight {
+  background: linear-gradient(145deg, #ffa726, #fb8c00, #f57c00);
+  font-weight: bold;
+  transition: transform 0.6s ease;
+}
+
+/* Disable hover effect for current or past tasks */
+.no-hover {
+  pointer-events: none;
+}
+/* Disable text selection on the entire page */
+body {
+  user-select: none;
+}
